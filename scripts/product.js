@@ -576,31 +576,86 @@ const data = [
   },
 ];
 
-const earphones = document.getElementById("earphones");
+// Get ? from url
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const id = urlParams.get("id");
 
-earphones.innerHTML = data
-  .filter((item) => item.category === "earphones")
-  .map(
-    (item, i) => `
-        <div class=${i % 2 ? "shop-item" : "shop-item-reverse"}>
+// Find product
+const product = data.find((product) => product.slug === id);
+
+const productDetail = document.getElementById("product-details");
+
+let quantity = 1;
+
+function decrement() {
+    if (quantity > 1) {
+        quantity--;
+        document.getElementById("quantity").innerHTML = quantity;
+    }
+}
+
+function increment() {
+    quantity++;
+    document.getElementById("quantity").innerHTML = quantity > 9 ? quantity : `0${quantity}`;
+}
+
+if (!product || !productDetail) {
+    console.log("Product not found");
+} else {
+    document.title = product.name;
+
+    productDetail.innerHTML += `
+        <div class=${"shop-item"}>
             <div class="pdt-img">
                 <img
-                src="${item.image.desktop}"
+                src="${product.image.desktop}"
                 />
             </div>
             <div class="about">
                 <h3>New Product</h3>
                 <h2>
-                ${item.name}
+                ${product.name}
                 </h2>
                 <p>
-                ${item.description}
+                ${product.description}
                 </p>
-                <a href="/product.html?id=${item.slug}">
-                  <button class="btn btn-primary">SEE PRODUCT</button>
-                </a>
+                <h4 class="price">$${product.price}</h4>
+                <div class="add-to-cart">
+                    <div class="btn btn-cart">
+                        <ion-icon onclick="decrement()" class="icon" name="remove-outline"></ion-icon>
+                        <span id="quantity">0${quantity}</span>
+                        <ion-icon onclick="increment()" class="icon" name="add-outline"></ion-icon>
+                    </div>
+                    <button class="btn btn-primary">Add to cart</button>
+                </div>
             </div>
         </div>
-    `
-  )
-  .join("");
+        <div class="product-content">
+            <div class="feat-data">
+                <h3>Features</h3>
+                <p>${product.features.replaceAll("\n", "<br>")}</p>
+            </div>
+            <div class="box-data">
+                <h3>In The Box</h3>
+                <ul id="items-includes">
+                    
+                </ul>
+            </div>
+        </div>
+    `;
+
+  const itemsInluded = document.getElementById("items-includes");
+
+  product.includes.forEach((item) => {
+    itemsInluded.innerHTML += `
+    <li>
+        <div>
+          <span class="q">${item.quantity}x</span>
+          <span class="item">${item.item}<span>
+      </div>
+    </li>    
+    `;
+  });
+}
+

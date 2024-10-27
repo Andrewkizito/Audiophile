@@ -595,7 +595,9 @@ headphones.innerHTML = data.filter((item) => item.category === "headphones")
                 <p>
                 ${item.description}
                 </p>
-                <button class="btn btn-primary">SEE PRODUCT</button>
+                <a href="/product.html?id=${item.slug}">
+                  <button class="btn btn-primary">SEE PRODUCT</button>
+                </a>
             </div>
         </div>
     `
