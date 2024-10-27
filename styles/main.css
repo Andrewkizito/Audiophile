@@ -446,6 +446,9 @@ a {
 }
 
 /* ---------- Showcase Area 2 --------- */
+.showcase-2 {
+  padding-bottom: 60px;
+}
 .showcase-2 .display-grid {
   gap: 20px;
   display: grid;
