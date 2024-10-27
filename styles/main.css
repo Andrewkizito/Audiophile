@@ -508,8 +508,75 @@ a {
   }
   .showcase-2 .showcase-area-two {
     padding: 0 20px;
+    background-image: url("/assets/home/mobile/image-speaker-zx7.jpg") !important;
   }
   .showcase-2 .showcase-item-1 {
     padding: 10px 0px !important;
+  }
+}
+
+/* ---------- Showcase Area 3 --------- */
+.showcase-3 {
+  padding-bottom: 60px;
+}
+.showcase-3 .display-grid {
+  gap: 50px;
+  display: grid;
+  align-items: center;
+  margin-bottom: 20px;
+  grid-template-columns: repeat(2, 1fr);
+}
+.showcase-3 .display-grid .text h2 {
+  font-weight: 600;
+  font-size: 2.2rem;
+  max-width: 60%;
+  text-transform: uppercase;
+}
+.showcase-3 .display-grid .text h2 span {
+  color: var(--aud-primary-color) !important;
+}
+.showcase-3 .display-grid .text p {
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  color: #868686;
+}
+.showcase-3 .display-grid .bg-about {
+  height: 400px;
+}
+.showcase-3 .display-grid .bg-about img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+  -o-object-position: center;
+     object-position: center;
+}
+@media (min-height: 451px) and (max-width: 768px) {
+  .showcase-3 .display-grid {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+  .showcase-3 .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+  }
+  .showcase-3 .text h2 {
+    font-size: 1.7rem;
+    text-align: center;
+  }
+  .showcase-3 .text p {
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+@media (max-width: 450px) {
+  .showcase-3 .text h2 {
+    font-size: 1.5rem !important;
   }
 }/*# sourceMappingURL=main.css.map */
