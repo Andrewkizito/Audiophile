@@ -67,17 +67,43 @@ a {
   background-color: var(--aud-primary-color-light);
 }
 
+.tablet,
+.mobile {
+  display: none;
+}
+
+.desktop {
+  display: block;
+}
+
 @media (min-height: 451px) and (max-width: 768px) {
+  .desktop,
+  .mobile {
+    display: none;
+  }
+  .tablet {
+    display: block;
+  }
   .btn {
     font-size: 0.8rem;
   }
 }
 @media (max-width: 450px) {
+  .desktop,
+  .tablet {
+    display: none !important;
+  }
+  .mobile {
+    display: block !important;
+  }
   .btn {
-    font-size: 0.7rem;
+    font-size: 0.7rem !important;
   }
   .container {
-    padding: 0 10px;
+    padding: 0 10px !important;
+  }
+  .flex-col {
+    padding: 10px 0px !important;
   }
 }
 /* ----------- Header ----------- */
@@ -228,7 +254,7 @@ a {
 
 /* ----------- Categories  ------------ */
 .categories {
-  padding: 100px 0;
+  padding: 80px 0;
 }
 .categories .grid-display {
   display: grid;
@@ -327,5 +353,160 @@ a {
   }
   .categories .text h3 {
     font-size: 0.8rem !important;
+  }
+}
+
+/* ---------- Showcase Area 1 --------- */
+.speaker-showcase {
+  padding: 80px 0 20px 0;
+  margin: 0px 10px;
+}
+.speaker-showcase .showcase-area {
+  height: 70vh;
+}
+.speaker-showcase .showcase-area .display-grid {
+  height: 100%;
+  display: grid;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: var(--aud-primary-color);
+  background-image: url("/assets/img/pattern-circles.svg");
+}
+.speaker-showcase .showcase-area .display-grid .speaker-img {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.speaker-showcase .showcase-area .display-grid .speaker-img img {
+  width: 60%;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+}
+.speaker-showcase .showcase-area .display-grid .text {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.speaker-showcase .showcase-area .display-grid .text h1 {
+  color: #fff;
+  font-size: 2rem;
+}
+.speaker-showcase .showcase-area .display-grid .text p {
+  color: #f1f1f1;
+  font-weight: 300;
+  max-width: 70%;
+  font-size: 0.9rem;
+  margin: 1rem 0rem;
+}
+.speaker-showcase .showcase-area .display-grid .text .btn {
+  background-color: #fff;
+  color: var(--aud-primary-color);
+}
+.speaker-showcase .showcase-area .display-grid .text .btn:hover {
+  background-color: var(--aud-black-soft);
+  color: var(--aud-white);
+}
+@media screen and (max-width: 768px) {
+  .speaker-showcase .showcase-area {
+    min-height: 60vh;
+    height: auto;
+  }
+  .speaker-showcase .showcase-area .display-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .speaker-showcase .showcase-area .display-grid img {
+    max-width: 40%;
+    padding: 20px 0px;
+  }
+  .speaker-showcase .showcase-area .display-grid .text div {
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0px;
+  }
+  .speaker-showcase .showcase-area .display-grid .text div .product-name {
+    padding: 10px 0;
+  }
+}
+@media (max-width: 450px) {
+  .speaker-showcase .showcase-area .display-grid {
+    padding: 20px 0 !important;
+  }
+  .speaker-showcase .showcase-area .display-grid .text .product-name h1 {
+    font-size: 1.5rem !important;
+    text-align: center !important;
+  }
+  .speaker-showcase .showcase-area .display-grid p {
+    text-align: center !important;
+  }
+}
+
+/* ---------- Showcase Area 2 --------- */
+.showcase-2 .display-grid {
+  gap: 20px;
+  display: grid;
+  margin-bottom: 20px;
+  grid-template-columns: repeat(2, 1fr);
+}
+.showcase-2 .showcase-area-two {
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  background-image: url("/assets/home/desktop/image-speaker-zx7.jpg");
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 80px;
+  gap: 10px;
+  grid-column: span 2/span 2;
+}
+.showcase-2 .showcase-item-1,
+.showcase-2 .showcase-item-2 {
+  height: 300px;
+  width: 100%;
+  border-radius: 10px;
+}
+.showcase-2 .showcase-item-1 {
+  background-size: cover;
+  background-position: center;
+  background-image: url("/assets/home/desktop/image-earphones-yx1.jpg");
+}
+.showcase-2 .showcase-item-2 {
+  display: flex;
+  padding: 0px 40px;
+  align-items: center;
+  background-color: var(--aud-gray);
+}
+.showcase-2 h1 {
+  color: var(--aud-black-soft);
+  font-weight: 500;
+}
+.showcase-2 .btn {
+  margin-top: 10px;
+  background-color: inherit;
+  border: 2px solid var(--aud-black-soft);
+  text-transform: capitalize;
+}
+.showcase-2 .btn:hover {
+  background-color: var(--aud-black-soft);
+  color: var(--aud-white);
+}
+@media (max-width: 450px) {
+  .showcase-2 .display-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .showcase-2 .showcase-area-two {
+    padding: 0 20px;
+  }
+  .showcase-2 .showcase-item-1 {
+    padding: 10px 0px !important;
   }
 }/*# sourceMappingURL=main.css.map */
