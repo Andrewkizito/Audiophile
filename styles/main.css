@@ -579,4 +579,124 @@ a {
   .showcase-3 .text h2 {
     font-size: 1.5rem !important;
   }
+}
+
+/* ------------------------ Headphones ---------------------------- */
+.headphones {
+  background: var(--aud-black-soft);
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.headphones h1 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-top: 1rem;
+  color: var(--aud-white);
+}
+
+.headphones-items {
+  padding: 80px 0;
+  /* -------- Media Queries -------- */
+  /* Tablet */
+  /* Mobile */
+  /* Extra small screens */
+}
+.headphones-items .shop-item,
+.headphones-items .shop-item-reverse {
+  display: flex;
+  gap: 80px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+.headphones-items .shop-item .pdt-img,
+.headphones-items .shop-item-reverse .pdt-img {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.headphones-items .shop-item .pdt-img img,
+.headphones-items .shop-item-reverse .pdt-img img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+.headphones-items .shop-item .about,
+.headphones-items .shop-item-reverse .about {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 0 40px;
+}
+.headphones-items .shop-item .about h3,
+.headphones-items .shop-item-reverse .about h3 {
+  letter-spacing: 6px;
+  color: var(--aud-primary-color-light);
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+.headphones-items .shop-item .about h1,
+.headphones-items .shop-item-reverse .about h1 {
+  color: var(--aud-white);
+  font-size: 3.5rem;
+}
+.headphones-items .shop-item .about p,
+.headphones-items .shop-item-reverse .about p {
+  color: #555;
+  font-weight: 300;
+  line-height: 1.5rem;
+  font-size: 0.9rem;
+}
+.headphones-items .shop-item .about .btn,
+.headphones-items .shop-item-reverse .about .btn {
+  margin-top: 20px;
+}
+.headphones-items .shop-item-reverse {
+  flex-direction: row-reverse;
+}
+@media (max-width: 1024px) {
+  .headphones-items .shop-item,
+  .headphones-items .shop-item-reverse {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .headphones-items .pdt-img, .headphones-items .about {
+    flex: none;
+    width: 100%;
+  }
+  .headphones-items .about h1 {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .headphones-items {
+    padding: 60px 0;
+  }
+  .headphones-items .shop-item,
+  .headphones-items .shop-item-reverse {
+    gap: 30px;
+  }
+  .headphones-items .about h1 {
+    font-size: 2rem;
+  }
+  .headphones-items .about p {
+    font-size: 0.85rem;
+  }
+}
+@media (max-width: 450px) {
+  .headphones-items {
+    padding: 40px 0;
+  }
+  .headphones-items .about h1 {
+    font-size: 1.8rem;
+  }
+  .headphones-items .about p {
+    font-size: 0.8rem;
+  }
 }/*# sourceMappingURL=main.css.map */
