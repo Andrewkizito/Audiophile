@@ -582,14 +582,16 @@ a {
 }
 
 /* ------------------------ Headphones ---------------------------- */
-.headphones {
+.headphones,
+.speakers {
   background: var(--aud-black-soft);
   height: 40vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.headphones h1 {
+.headphones h1,
+.speakers h1 {
   font-size: 1.8rem;
   font-weight: 500;
   margin-top: 1rem;
