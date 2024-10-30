@@ -596,8 +596,31 @@ function decrement() {
 }
 
 function increment() {
-    quantity++;
-    document.getElementById("quantity").innerHTML = quantity > 9 ? quantity : `0${quantity}`;
+  quantity++;
+  document.getElementById("quantity").innerHTML = quantity > 9 ? quantity : `0${quantity}`;
+}
+
+function addToCart(item) {
+  // Read cart from local storage
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // Check if item is already in cart
+  const existingItem = cart.find((cartItem) => cartItem.slug === item.slug);
+
+  if (existingItem) {
+    existingItem.quantity += item.quantity;
+  } else {
+    cart.push({...item, quantity: quantity});
+  }
+
+  // Save cart to local storage
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  // Show notification
+  alert("Product added to cart");
+
+  quantity = 1;
+  document.getElementById("quantity").innerHTML = quantity;
 }
 
 if (!product || !productDetail) {
@@ -623,11 +646,11 @@ if (!product || !productDetail) {
                 <h4 class="price">$${product.price}</h4>
                 <div class="add-to-cart">
                     <div class="btn btn-cart">
-                        <ion-icon onclick="decrement()" class="icon" name="remove-outline"></ion-icon>
-                        <span id="quantity">0${quantity}</span>
-                        <ion-icon onclick="increment()" class="icon" name="add-outline"></ion-icon>
+                        <span onclick="decrement()" class="icon">-</span>
+                        <span id="quantity">${quantity}</span>
+                        <span onclick="increment()" class="icon">+</span>
                     </div>
-                    <button class="btn btn-primary">Add to cart</button>
+                    <button id="add-to-cart" class="btn btn-primary">Add to cart</button>
                 </div>
             </div>
         </div>
@@ -700,5 +723,14 @@ if (!product || !productDetail) {
         </div>
     `;
   });
+}
+
+// Add to cart
+const addToCartBtn = document.getElementById("add-to-cart");
+
+if (addToCartBtn) {
+    addToCartBtn.addEventListener("click", () => {
+      addToCart(product);
+    });
 }
 
