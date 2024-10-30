@@ -639,14 +639,34 @@ if (!product || !productDetail) {
             <div class="box-data">
                 <h3>In The Box</h3>
                 <ul id="items-includes">
-                    
                 </ul>
             </div>
+        </div>
+        <div class="gallery">
+          <div class="slot1">
+            <div class="image1" style="background-image: url('${
+              product.gallery.first.desktop
+            }');"></div>
+            <div class="image2" style="background-image: url('${
+              product.gallery.second.desktop
+            }');"></div>
+          </div>
+          <div class="slot2">
+            <div class="image3" style="background-image: url('${
+              product.gallery.third.desktop
+            }');"></div>
+          </div>
+        </div>
+        <div class="related-products">
+          <h3>YOU MAY ALSO LIKE</h3>
+          <div class="items" id="related-products"></div>
+        </div>
         </div>
     `;
 
   const itemsInluded = document.getElementById("items-includes");
 
+  // Attach includes
   product.includes.forEach((item) => {
     itemsInluded.innerHTML += `
     <li>
@@ -655,6 +675,29 @@ if (!product || !productDetail) {
           <span class="item">${item.item}<span>
       </div>
     </li>    
+    `;
+  });
+
+  // Attach others
+  product.others.forEach((item) => {
+    const relatedProducts = document.getElementById("related-products");
+
+    relatedProducts.innerHTML += `
+        <div class="shop-item">
+            <div class="pdt-img">
+                <img
+                src="${item.image.desktop}"
+                />
+            </div>
+            <div class="about">
+                <h2>
+                ${item.name}
+                </h2>
+                <a href="/product.html?id=${item.slug}">
+                  <button class="btn btn-primary">SEE PRODUCT</button>
+                </a>
+            </div>
+        </div>
     `;
   });
 }

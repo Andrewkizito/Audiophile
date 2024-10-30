@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 /* ----------- Variables ----------- */
 :root {
   --aud-primary-color: #d87d4a;
@@ -13,7 +14,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 a {
@@ -86,6 +91,7 @@ a {
   }
   .btn {
     font-size: 0.8rem;
+    padding: 10px 20px;
   }
 }
 @media (max-width: 450px) {
@@ -695,7 +701,8 @@ a {
     flex-direction: column;
     gap: 40px;
   }
-  .headphones-items .pdt-img, .headphones-items .about,
+  .headphones-items .pdt-img,
+  .headphones-items .about,
   .product-details .pdt-img,
   .product-details .about {
     flex: none;
@@ -709,7 +716,7 @@ a {
 @media (max-width: 768px) {
   .headphones-items,
   .product-details {
-    padding: 60px 0;
+    padding: 60px 10px !important;
   }
   .headphones-items .shop-item,
   .headphones-items .shop-item-reverse,
@@ -804,6 +811,58 @@ a {
   font-size: 0.85rem;
   color: var(--aud-black-soft);
 }
+.product-details .gallery {
+  gap: 20px;
+  display: grid;
+  margin-top: 50px;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+}
+.product-details .gallery .slot1 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.product-details .gallery .slot1 .image1,
+.product-details .gallery .slot1 .image2 {
+  border-radius: 10px;
+  height: 380px;
+  background-position: center;
+  background-size: cover;
+}
+.product-details .gallery .slot2 {
+  flex: 1;
+}
+.product-details .gallery .slot2 .image3 {
+  border-radius: 10px;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+}
+.product-details .related-products {
+  margin-top: 50px;
+}
+.product-details .related-products h3 {
+  font-size: 1.7rem;
+  font-weight: 500;
+  text-align: center;
+}
+.product-details .related-products .items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.product-details .related-products .shop-item {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+.product-details .related-products .shop-item .btn {
+  margin-top: 0 !important;
+}
+.product-details .related-products .shop-item .about {
+  align-items: center !important;
+}
 @media (max-width: 768px) {
   .product-details {
     padding: 40px 10px;
@@ -822,9 +881,22 @@ a {
   .product-details p {
     font-size: 0.8rem;
   }
+  .product-details .image1,
+  .product-details .image2 {
+    height: 280px !important;
+  }
+  .product-details .items {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
 }
 @media (max-width: 450px) {
   .product-details {
     padding: 40px 10px !important;
+  }
+  .product-details h3 {
+    font-size: 1.5rem;
+  }
+  .product-details .items {
+    grid-template-columns: repeat(1, 1fr) !important;
   }
 }/*# sourceMappingURL=main.css.map */
