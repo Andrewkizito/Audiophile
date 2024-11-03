@@ -1275,4 +1275,126 @@ a {
 .pop-up-open {
   opacity: 1;
   visibility: visible;
+}
+
+/* ------------------- Footer ------------------- */
+footer {
+  padding: 50px 0;
+  background-color: #101010;
+  color: #fff;
+}
+footer .about {
+  max-width: 50%;
+}
+footer .about h3 {
+  font-size: 1.7rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+footer .about p {
+  font-size: 0.9rem;
+  color: #ccc;
+  font-weight: 300;
+}
+footer .top {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+footer .top .links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  min-height: 200px;
+}
+footer .top .links ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+footer .top .links ul a {
+  text-decoration: none;
+  color: #ececec;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+footer .top .links .socials {
+  display: flex;
+  gap: 20px;
+}
+footer .top .links .socials .social-icon {
+  color: #ececec;
+  font-size: 1.5rem;
+}
+footer .bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+footer .bottom p {
+  font-size: 0.9rem;
+  color: #8d8d8d;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  footer .top {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  footer .about {
+    max-width: 100%;
+    text-align: center;
+  }
+  footer .about h3 {
+    font-size: 1.5rem;
+  }
+  footer .about p {
+    font-size: 0.85rem;
+  }
+  footer .links {
+    align-items: flex-start; /* Ensure links remain left-aligned */
+  }
+  footer .links ul {
+    flex-direction: row; /* Ensure links remain in a row format */
+    flex-wrap: wrap; /* Allow links to wrap if needed */
+    gap: 10px;
+    justify-content: flex-start;
+  }
+  footer .links .socials {
+    justify-content: center;
+  }
+  footer .bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  footer .bottom p {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 480px) {
+  footer {
+    padding: 30px 0;
+  }
+  footer .about h3 {
+    font-size: 1.3rem;
+  }
+  footer .about p,
+  footer .bottom p {
+    font-size: 0.75rem;
+  }
+  footer .links ul a {
+    font-size: 0.8rem;
+  }
+  footer .links .social-icon {
+    font-size: 1.2rem;
+  }
+  footer .links {
+    min-height: 80px !important;
+  }
 }/*# sourceMappingURL=main.css.map */
