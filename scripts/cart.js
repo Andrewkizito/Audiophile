@@ -121,4 +121,8 @@ function closeCart() {
 // Add event listener to backdrop
 backdrop.addEventListener("click", () => {
   closeCart();
+
+  if (window.location.pathname === "/checkout.html") {
+    window.location.reload();
+  }
 });
